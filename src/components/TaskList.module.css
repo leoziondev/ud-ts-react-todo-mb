@@ -1,0 +1,34 @@
+.cardTask {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto 15px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,.08);
+    border-left: 4px solid #818cf8;
+}
+
+.cardTask small {
+    color: #64748b;
+}
+
+.cardTask .content {
+    width: 100%;
+}
+
+.cardTask .actions {
+    flex-shrink: 0;
+    padding-left: 8px;
+}
+
+.cardTask .actions i {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: all .2s;
+}
+
+.cardTask .actions i:hover {
+    color: #4f46e5;
+}
