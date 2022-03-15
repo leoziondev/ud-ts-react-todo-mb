@@ -11,6 +11,14 @@ import styles from './App.module.css'
 const App = () => {
   const [taskList, setTaskList] = useState<ITask[]>([])
 
+  const handleDeleteTask = (id: number) => {
+    setTaskList(
+      taskList.filter((task) => {
+        return task.id !== id
+      })
+    )
+  }
+
   return (
     <div className={styles.bodyWrapper}>
       <Header />
@@ -27,6 +35,7 @@ const App = () => {
           <h2>Minhas tarefas</h2>
           <TaskList
             taskList={taskList}
+            handleDelete={handleDeleteTask}
           />
         </div>
       </main>
