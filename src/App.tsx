@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ITask } from './interfaces/Task'
+import { ITask } from './interfaces/Task';
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -11,6 +11,7 @@ import Modal from './components/Modal';
 
 const App = () => {
   const [taskList, setTaskList] = useState<ITask[]>([])
+  const [taskToUpdate, setTaskToUpdate] = useState<ITask | null>(null)
 
   const handleDeleteTask = (id: number) => {
     setTaskList(
@@ -30,20 +31,21 @@ const App = () => {
     }
   }
 
-  const editTask = (): void => {
+  const editTask = (task: ITask): void => {
     hideOrShowModal(true)
-  }
+    setTaskToUpdate(task)
+  }  
 
   return (
     <div className={styles.bodyWrapper}>
-      <Modal children={<TaskForm taskList={taskList} btnText="Editar tarefa" />} />
+      <Modal children={<TaskForm taskList={taskList} task={taskToUpdate} btnText="Editar tarefa" />} />
       <Header />
       <main>
         <div>
           <h2>Adicionar nova tarefa</h2>
           <TaskForm
             btnText="Criar Tarefa"
-            taskList={taskList}
+            taskList={taskList}            
             setTaskList={setTaskList}
           />
         </div>

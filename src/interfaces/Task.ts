@@ -1,5 +1,5 @@
 export interface ITask {
     id: number
-    task: string
+    title: string
     difficulty: number
 }
