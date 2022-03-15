@@ -7,6 +7,7 @@ import TaskForm from './components/TaskForm'
 import TaskList from './components/TaskList'
 
 import styles from './App.module.css'
+import Modal from './components/Modal';
 
 const App = () => {
   const [taskList, setTaskList] = useState<ITask[]>([])
@@ -19,8 +20,23 @@ const App = () => {
     )
   }
 
+  const hideOrShowModal = (display: boolean) => {
+    const modal = document.querySelector("#modal")
+
+    if (display) {
+      modal!.classList.remove("hide")
+    } else {
+      modal!.classList.add("hide")
+    }
+  }
+
+  const editTask = (): void => {
+    hideOrShowModal(true)
+  }
+
   return (
     <div className={styles.bodyWrapper}>
+      <Modal children={<TaskForm taskList={taskList} btnText="Editar tarefa" />} />
       <Header />
       <main>
         <div>
@@ -36,6 +52,7 @@ const App = () => {
           <TaskList
             taskList={taskList}
             handleDelete={handleDeleteTask}
+            handleEdit={editTask}
           />
         </div>
       </main>

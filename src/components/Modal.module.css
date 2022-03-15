@@ -1,0 +1,24 @@
+.fade {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0,0,0,.6);
+}
+
+.modal {
+    position: absolute;
+    width: 90%;
+    max-width: 400px;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
